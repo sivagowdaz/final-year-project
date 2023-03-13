@@ -1,0 +1,2 @@
+-- This file consists of sql commands that are used for creating the tables
+-- currently empty
