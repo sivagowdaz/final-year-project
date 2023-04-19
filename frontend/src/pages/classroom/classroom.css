@@ -1,0 +1,163 @@
+.classroom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.classroom_container {
+    align-items: center;
+    width: 90%;
+    
+}
+
+.classroom_info {
+    text-align: center;
+}
+.classroom_info > p {
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(129, 129, 249);
+}
+.substuc_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.take_attendance_btn {
+    padding: 5px;
+    font-size: 12px;
+    outline: none;
+    background-color:rgb(198, 198, 255);
+    border: none;
+    border-radius: 3px;
+}
+
+.attendance_record_btn {
+    padding: 5px;
+    font-size: 12px;
+    outline: none;
+    background-color: rgb(198, 198, 255);
+    border: none;
+    border-radius: 3px;
+}
+
+.add_subject_btn, .add_student_btn {
+    margin-top:15px;
+    outline: none;
+    font-weight: 500;
+    border: none;
+    height: 30px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(107, 107, 253);
+}
+
+.add_subject {
+    padding: 15px 20px;
+    border: 0.5px solid gray;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    gap: 10px;
+    align-items: center;
+}
+
+.add_subject > input {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid gray;
+    font-size: 15px;
+    height: 30px;
+    width: 200px;
+}
+.add_subject>select {
+    outline: none;
+    border: none;
+    font-size: 15px;
+    border-bottom: 1.5px solid gray;
+    height: 30px;
+    width: 200px;
+}
+.add_subject > button {
+    border: none;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(107, 107, 253);
+}
+.add_student {
+    padding: 15px 20px;
+    border: 0.5px solid gray;
+    margin-top: 20px;
+    border-radius: 5px;
+    gap: 10px;
+    align-items: center;
+}
+
+.sid_box {
+    color: gray;
+    margin-bottom: 15px;
+}
+.sid_val {
+    color: red;
+}
+.add_student_inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.add_student_inputs > input {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid gray;
+    font-size: 15px;
+    height: 30px;
+    width: 200px;
+}
+
+.add_student_inputs > button {
+    border: none;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(107, 107, 253);
+}
+
+.no_subjects {
+    width: 680px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+.no_subjects > p {
+    color: gray;
+    opacity: 0.4;
+}
+.no_students {
+    width: 680px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+.no_students > p {
+    color: gray;
+    opacity: 0.4;
+}

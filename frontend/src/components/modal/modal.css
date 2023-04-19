@@ -1,0 +1,13 @@
+.modal_container {
+    position: fixed;
+    margin: 0px auto;
+    bottom: 50px;
+    padding: 5px 100px;
+    border-radius: 20px;
+    background-color: rgb(230, 230, 254);
+    text-align: center;
+}
+.modal_message {
+    margin: 0 auto;
+    font-size: 13px;
+}

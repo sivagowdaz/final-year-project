@@ -1,0 +1,217 @@
+.home {
+    margin-top:0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index:-1;
+}
+.department_name {
+    margin-top:50px;
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(129, 129, 249);
+
+}
+.classroom_info_container {
+    align-items: center;
+}
+.classroom_info {
+    padding: 15px 25px;
+    width: 700px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: space-between;
+}
+.classroom_info:hover {
+    scale: 1.006;
+    box-shadow: 1px 2px 4px 2px rgba(214, 232, 244, 0.75);
+        -webkit-box-shadow: 1px 2px 4px 2px rgba(214, 232, 244, 0.75);
+        -moz-box-shadow: 1px 2px 4px 2px rgba(214, 232, 244, 0.75);
+}
+.classroom_info > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+.number_of_students {
+    font-size: 30px;
+    color:rgb(129, 129, 249);
+}
+.add_classroom_btn {
+    width: 700px;
+    height: 100px;
+    padding: 15px 25px;
+    border: 2px solid gray;
+    border-style: dashed;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(214, 232, 248);
+}
+.add_classroom_form {
+    width: 700px;
+    height: 100px;
+    padding: 15px 25px;
+    border: 2px solid gray;
+    border-style: dashed;
+    border-radius: 10px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 241, 255);
+}
+.add_classroom_form > input {
+    outline: none;
+    border: none;
+    width: 200px;
+    font-size: 15px;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+}
+
+.add_classroom_form>input:hover {
+    border-bottom: 1.8px solid gray;
+}
+
+.add_classroom_form > button {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    width: 60px;
+    padding: 5px 10px;
+    color: white;
+    font:18px;
+    font-weight: bold;
+    background-color: #6b6bfd;
+}
+.add_classroom_form>button:hover {
+    background-color: #4242fe;
+}
+
+.add_teacher_btn {
+    box-sizing: border-box;
+    width: 750px;
+    border: 2px solid gray;
+    border-style: dotted;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 10px;
+    background-color: #f0f8ff;
+}
+
+.add_teacher_form {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 70px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 10px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.add_teacher_form_inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.add_teacher_form_inputs >input {
+    width: 250px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px dotted gray;
+    font-size: 15px
+}
+.add_teacher_form_radio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}
+.add_teacher_form > button {
+    outline: none;
+    border: none;
+    font-size: 13px;
+    color: white;
+    font-weight: bold;
+    background-color: #6b6bfd;
+    padding: 5px 0;
+    border-radius: 3px;
+}
+
+.no_classrooms {
+    width: 700px !important;
+    padding: 20px;
+    border: 1px solid rgb(128, 128, 128, 0.5);
+    border-radius: 5px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+
+}
+.no_teachers {
+    width: 700px !important;
+    padding: 20px;
+    border: 1px solid rgb(128, 128, 128, 0.5);
+    border-radius: 5px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+.no_classrooms > p {
+    font-size: 18px;
+    color: gray;
+    opacity: 0.4;
+}
+.no_teachers > p {
+    font-size: 18px;
+    color: gray;
+    opacity: 0.4;
+}
+.create_department_btn {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: #6b6bfd;
+    color: white;
+    font-weight: bold;
+    margin-top: 25px;
+    padding: 8px;
+}
+.department_form {
+    width: 700px;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.department_form > input {
+    width: 230px;
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid gray;
+}
+.department_form > button {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: #6b6bfd;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}

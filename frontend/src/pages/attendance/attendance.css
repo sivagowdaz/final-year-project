@@ -1,0 +1,47 @@
+.attendance {
+    width: 100%;
+}
+.attendance_container {
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.present_list {
+    flex: 1;
+}
+.absent_list {
+    flex: 1;
+}
+.no_attendace_put {
+    margin-top:22px;
+    border-radius: 3px;
+    border:0.5px solid gray;
+    height: 395px;
+    font-size: 25px;
+    font-weight: 500;
+    opacity: 0.2;
+    color:gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upload_btn {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upload_btn > button {
+    outline: none;
+    border: none;
+    padding: 8px;
+    background-color: rgb(107, 107, 253);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}

@@ -14,21 +14,23 @@ const verify_token = (req, res, next) => {
         jwt.verify(authToken, process.env.SECRET, (err, user) => {
             if(err) {
                 console.log(err);
-                return res.json({status:"invalid token"})
+                return res.json({Error: "invalid token", status:400})
             }
-            console.log("user is", user)
             req.user = user
             next()
         })
     } else {
-        return res.json({"status":"authentication token is not provided"})
+        return res.json({Error:"authentication token is not provided", status:400})
     }
 }
 
 const authenticate_user = async(req, res, next) => {
-    const { admin_id, password } = req.body
+    const {admin_id, password} = req.body
+    
+    console.log(admin_id, password)
 
     let user = await pool.query("select * from admin where admin_id = $1", [admin_id])
+    console.log(user)
     let dbpassword
     let isMatch
     if (user.rows[0]) {
@@ -40,7 +42,7 @@ const authenticate_user = async(req, res, next) => {
         req.user = user.rows[0]
         next()
     } else {
-        res.json({ status: "Invalid password or email" })
+        res.json({ status:400, Error: "Invalid password or email" })
     }
 }
 
@@ -59,13 +61,24 @@ const authenticate_teacher = async(req, res, next) => {
         req.user = user.rows[0]
         next()
     } else {
-        res.json({ status: "Invalid password or email" })
+        res.json({ status:400, Error: "Invalid password or email" })
     }
 }
+
+function generate_id () {
+    var id = 0
+    for(let i = 0;i < 10;i++){
+        let j = Math.floor(Math.random()* 10);
+        id = (id * 10) + j
+    }
+    return id.toString();
+}
+
 
 module.exports = {
     generate_acess_token,
     verify_token, 
     authenticate_teacher,
-    authenticate_user
+    authenticate_user,
+    generate_id
 }

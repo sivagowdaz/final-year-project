@@ -1,0 +1,142 @@
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.login_buttons {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    border:0.5px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.login_buttons:hover {
+    border: 3px solid gray;
+}
+.login_buttons > button {
+    width: 150px;
+    padding: 10px 0;
+    background-color: rgb(107, 107, 253);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border:none;
+    border-radius: 5px;
+}
+.login_buttons>button:hover {
+    scale: 1.1;
+}
+.login_buttons_title {
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(57, 57, 205);
+}
+
+.auths {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home_btn {
+    margin-top: -120px;
+}
+
+.home_btn>button {
+    outline:none;
+    background-color: rgb(139, 192, 139);
+    width: 150px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    border:none;
+    color: white;
+    font-weight: bold;
+}
+
+.auth_forms {
+    width: 300px;
+    min-height: 300px;
+    max-height: fit-content;
+    margin-top: 70px;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.auth_forms > input {
+    outline: none;
+    border: 0.5px solid gray;
+    font-size: 13px;
+    padding: 8px 3px;
+    margin-bottom: 15px;
+}
+
+.auth_forms>input:hover {
+    border: 1.7px solid gray;
+}
+
+.login_heading {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(107, 107, 253);
+}
+.auth_forms > button {
+    outline: none;
+    background-color: rgb(107, 107, 253);
+    border:none;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+}
+.id_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 5px;
+    padding: 0;
+}
+.generate_id {
+    flex: 1;
+    cursor: pointer;
+    color:rgb(107, 107, 253);
+    font-size: 13px;
+    text-decoration: underline;
+}
+.id_container > input {
+    flex: 3;
+    outline: none;
+    border: 0.5px solid gray;
+    font-size: 13px;
+    padding: 8px 3px;
+}
+
+.register_tag {
+    margin-left: 5px;
+    color: rgb(107, 107, 253);
+    font-size: bold;
+    cursor: pointer;
+}
+.register_btn {
+    margin-bottom: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,28 @@
+.topbar {
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    padding: 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 5px 5px 0px rgba(83, 77, 77, 0.32);
+        -webkit-box-shadow: 0px 5px 5px 0px rgba(83, 77, 77, 0.32);
+        -moz-box-shadow: 0px 5px 5px 0px rgba(83, 77, 77, 0.32);
+    /* font-family: 'Poppins', sans-serif; */
+    background: transparent;
+}
+.topbar_title {
+    font-size: 25px;
+    color: blue;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.logout {
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+}
+.logout:hover {
+    scale: 1.1;
+}

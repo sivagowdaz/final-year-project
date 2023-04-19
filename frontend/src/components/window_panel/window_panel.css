@@ -1,0 +1,13 @@
+.window_panel {
+    display: flex;
+    gap: 2px;
+}
+.window_pan {
+    color: blue;
+    padding: 3px;
+    background-color: antiquewhite;
+    margin: 3px;
+}
+.window_pan:hover {
+    scale: 1.2;
+}

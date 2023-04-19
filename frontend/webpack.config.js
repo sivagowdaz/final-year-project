@@ -1,18 +1,32 @@
 const path = require("path");
 const webpack = require('webpack')
+var fs = require('fs');
+
+var nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 module.exports = {
+    externals: nodeModules,
     entry: {
-        index: './src/index.js',
-        test: './src/Test.js',
+        login: './src/pages/login/Login.js',
+        home: './src/pages/home/Home.js',
+        classroom: './src/pages/classroom/Classroom.js',
+        attendance: './src/pages/attendance/Attendance.js',
+        attendance_record: './src/pages/attendance_record/AttendanceRecord.js',
     },
     output: {
         path: path.join(__dirname, '/dist'),
         filename: "[name].bundle.js"
     },
-    // devServer: {
-    //     port: 3010,
-    // },
+    devServer: {
+        port: 3010,
+    },
     module: {
         rules: [
             {
@@ -23,7 +37,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/,
+                test: /\.(css|scss)$/,
                 use: [
                     'style-loader',
                     'css-loader',
@@ -34,7 +48,9 @@ module.exports = {
     },
     plugins: [
     new webpack.ProvidePlugin({
-      process: 'process/browser',
+        process: 'process/browser',
+        "React": "react",
     }),
-  ]
+    ],
+   
 }

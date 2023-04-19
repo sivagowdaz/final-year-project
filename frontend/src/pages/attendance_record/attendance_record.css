@@ -1,0 +1,58 @@
+.attendance_record {
+    margin-top: 25px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    
+}
+.subject_id_fill_form {
+    display: flex;
+    gap: 15px;
+}
+.subject_id {
+    margin-left: 10px;
+    width: 175px;
+    padding: 5px;
+    font-size: 15px;
+    outline: none;
+    border: 0.5px solid gray;
+    background-color: azure;
+}
+
+.get_record_btn {
+    outline: none;
+    background-color: rgb(107, 107, 253);
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 5px;
+    color: white;
+}
+
+.record_stat {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+.record_stat > p {
+    font-size: 15px;
+}
+
+.record_table {
+    max-width: 1000px;
+    min-width: 700px;
+}
+
+.no_records {
+    
+}
