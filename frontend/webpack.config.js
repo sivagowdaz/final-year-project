@@ -19,6 +19,7 @@ module.exports = {
         classroom: './src/pages/classroom/Classroom.js',
         attendance: './src/pages/attendance/Attendance.js',
         attendance_record: './src/pages/attendance_record/AttendanceRecord.js',
+        attendance_report:'./src/pages/attendance_report/AttendanceReport.js'
     },
     output: {
         path: path.join(__dirname, '/dist'),

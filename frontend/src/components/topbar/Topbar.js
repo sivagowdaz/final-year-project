@@ -16,7 +16,7 @@ function Topbar () {
                 <p className='topbar_title'>ATTENDANCE MANAGER</p>
                 <p className='logout' onClick={handleLogout}>Logout</p>
             </div>
-            <ComeBack/>
+            {/* <ComeBack/> */}
         </>
    
   )

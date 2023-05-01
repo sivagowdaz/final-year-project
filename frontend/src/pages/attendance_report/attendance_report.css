@@ -1,0 +1,32 @@
+.report_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:30px;
+    gap: 50px;
+}
+.student_info {
+    text-align: center;
+    width: 100%;
+    font-weight: 450;
+}
+
+.info_container {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    border: 0.5px solid rgb(128, 128, 128, 0.3);
+    border-radius: 10px;
+}
+.download_report {
+    display: block;
+    border: none;
+    color: white;
+    outline: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: rgb(114, 114, 252);
+    border-radius: 5px;
+    margin: 50px auto;
+}

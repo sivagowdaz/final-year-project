@@ -48,9 +48,22 @@ const login_teacher = async(req, res) => {
     }
 }
 
+const login_student = async (req, res) => {
+    console.log("inside the  login student")
+    try {
+        user = req.user
+        token = generate_acess_token({ student_id: req.user.usn, password: req.user.password, classroom_id: req.user.classroom_id})
+        res.json({ "token": { token }, "status":200})
+    } catch (error) {
+        console.log(error.message)
+        res.json({"Error": "login failed", "status":400})
+    }
+}
+
 
 module.exports = {
     register_admin,
     login_admin,
     login_teacher,
+    login_student
 }

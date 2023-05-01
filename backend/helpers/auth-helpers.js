@@ -65,6 +65,28 @@ const authenticate_teacher = async(req, res, next) => {
     }
 }
 
+const authenticate_student = async(req, res, next) => {
+    const {usn, password} = req.body
+    console.log(req.body)
+    let user = await pool.query("select * from student where usn = $1", [usn])
+    console.log(user?.rows)
+    let dbpassword
+    let isMatch
+    if (user.rows[0]) {
+        dbpassword = user.rows[0].password
+        if(password == dbpassword) {
+            isMatch = true
+        }
+        console.log("the password", isMatch)
+    } 
+    if (isMatch) {
+        req.user = user.rows[0]
+        next()
+    } else {
+        res.json({ status:400, Error: "Invalid password or email" })
+    }
+}
+
 function generate_id () {
     var id = 0
     for(let i = 0;i < 10;i++){
@@ -75,10 +97,12 @@ function generate_id () {
 }
 
 
+
 module.exports = {
     generate_acess_token,
     verify_token, 
     authenticate_teacher,
     authenticate_user,
-    generate_id
+    authenticate_student,
+    generate_id,
 }

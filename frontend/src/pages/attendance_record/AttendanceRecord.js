@@ -8,6 +8,7 @@ import {MdDone} from 'react-icons/md';
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Pie} from 'react-chartjs-2';
 import {useState, useEffect} from 'react';
+import ComeBack from '../../components/comeback/ComeBack';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -21,11 +22,11 @@ function AttendanceRecord () {
     const [studentAttendanceRecord, setStudentAttendanceRecord] = useState(null);
     
     ipcRenderer.on('attendanceRecordData', (event, data) => {
+        ipcRenderer.send('handshake:attendance_record', 'recieved');
         console.log('DATA', data);
         setSubjectData(data.subjectsData);
         setStudentsData(data.studentData);
         setSubjectId(data.subjectsData[0].subject_id);
-        ipcRenderer.send('handshake:attendance_record', 'recieved');
     })
 
     useEffect(() => {
@@ -157,8 +158,9 @@ function AttendanceRecord () {
                                 }
                             </div>
                         </div> 
-                    }
-                </div>
+                }
+                <ComeBack/>
+            </div>
             </>
     )
 }

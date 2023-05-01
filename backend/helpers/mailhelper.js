@@ -51,5 +51,73 @@ function sendMail (data) {
     })
 }
 
-// sendMail({to: 'shivaprasadshivaprasade@gmail.com', name: "Shivaprasad", role: 'Teacher', department_name: "Computer Science", admin_name: "Sridevi Saralaya", teacher_id: "teach45632", password: "password"})
-module.exports = {sendMail}
+function pdfTemplate ({studentData:{name, email, usn}, studentAttendanceReportData}) {
+    const today = new Date();
+    return `
+        <!doctype html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>PDF Result Template</title>
+            <style>
+                .student_info {
+                    text-align: center;
+                    margin-top: 50px;
+                }
+                td {
+                    padding: 4px;
+                    font-size: 15px;
+                }
+                .subjectwise_report {
+                    width: 100%;
+                }
+                table {
+                    margin: 10px auto;
+                    border: 0.5px solid gray;
+                }
+            </style>
+        </head>
+        <body>
+            <div class='student_info'>
+                <h2>STUDENT ATTENDACE REPORT REPORT</h2>
+                <div>
+                    <p>Name: ${name}</p>
+                    <p>Email: ${email}</p>
+                    <p>USN: ${usn}</p>
+                </div>
+            </div>
+            <div class='subjectwise_report'>
+                <table>
+                    <tr>
+                        <th>Subject Id</th>
+                        <th>Title</th>
+                        <th>Total Classes</th>
+                        <th>Attended Classes</th>
+                        <th>Skipped Classes</th>
+                        <th>Percentage</th>
+                        <th>Remark</th>
+                    </tr>
+                    ${(() => {
+                        let tableRows = ""
+                        for(let i = 0;i < studentAttendanceReportData.length;i++){
+                            tableRows += 
+                            `<tr>
+                                <td>${studentAttendanceReportData[i].subject_id}</td>
+                                <td>${studentAttendanceReportData[i].subject_name}</td>
+                                <td>${studentAttendanceReportData[i].total_classes}</td>
+                                <td>${studentAttendanceReportData[i].attended_classes}</td>
+                                <td>${studentAttendanceReportData[i].bunked_classes}</td>
+                                <td>${studentAttendanceReportData[i].percentage}</td>
+                                <td>${studentAttendanceReportData[i].percentage<=75?"Shortage":"Enough"}</td>
+                            </tr>`
+                        }
+                        return tableRows
+                    })()}
+                </table>
+            </div>
+        </body>
+        </html>
+        `;
+}
+
+module.exports = {sendMail, pdfTemplate}

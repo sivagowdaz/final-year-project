@@ -11,6 +11,7 @@ let classroomWindow;
 let loginWindow;
 let attendanceWindow;
 let attendanceRecordWindow;
+let attendanceReportWindow;
 
 let winList;
 
@@ -149,6 +150,35 @@ function createAttendanceRecordWindow (data) {
     });
 }
 
+let attendanceReportInterval;
+function createAttendanceReportWindow (data) {
+    console.log("inside report window")
+    attendanceReportWindow = new BrowserWindow({
+        title: 'Student Attendance System',
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            backgroundTrottling: false,
+        }
+    })
+    attendanceReportWindow.maximize()
+
+    attendanceReportWindow.loadURL(`file://${__dirname}/public/attendance_report.html`);
+    
+    // winList.getTopWindow().window.hide();
+    winList.currentWindow.hide();
+    winList.insertEnd(attendanceReportWindow, `record:${data.studentData.name}`);
+    // sendWindowInfo(attendanceRecordWindow);
+    // attendanceRecordWindow.on('show', () => {console.log("inside from the attendance record show"); sendWindowInfo(attendanceRecordWindow)});
+    // console.log(winList.printData());
+
+    attendanceReportWindow.on('closed', () => attendanceReportWindow = null);
+
+    attendanceReportInterval = setTimeout(() => {
+        attendanceReportWindow.webContents.send('attendanceReportData', data)
+    }, 600);
+}
+
 ipcMain.on('handshake:classroom', (event, data) => {
     if(data == 'recieved') {
         clearInterval(classroomInterval);
@@ -170,6 +200,14 @@ ipcMain.on('handshake:attendance_record', (event, data) => {
         attendanceRecordWindow.webContents.removeListener('attendanceRecordData', ()=>{}); 
     }
 })
+
+// ipcMain.on('handshake:attendance_report', (event, data) => {
+//     if(data == 'recieved') {
+//         console.log("inside the clear interval")
+//         clearInterval(attendanceReportInterval);
+//         attendanceReportWindow.webContents.removeListener('attendanceReportData', ()=>{}); 
+//     }
+// })
 
 ipcMain.on('open_home_window', (event, page) => {
     loginWindow.close()
@@ -196,13 +234,10 @@ ipcMain.on('open_attendance_rocord_window', (event, data) => {
     createAttendanceRecordWindow(data);
 })
 
-// ipcMain.on('window_changed_chanel', (event, windowNum) => {
-//     let currentWindow = winList.getWindowByPos(windowNum);
-//     winList.currentWindow.hide();
-//     winList.currentWindow = currentWindow.window;
-//     console.log(winList.printData());
-//     currentWindow.window.show();
-// })
+ipcMain.on('open_attendance_report_window', (event, data) => {
+    console.log("inside ipc report ")
+    createAttendanceReportWindow(data);
+})
 
 ipcMain.on("come_back", (event, data) => {
     if(data == 'come_back') {

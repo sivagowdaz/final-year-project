@@ -5,8 +5,9 @@ import { io } from "socket.io-client";
 import Topbar from '../../components/topbar/Topbar';
 import Modal from '../../components/modal/Modal';
 import WindowPanel from '../../components/window_panel/WindowPanel';
+import ComeBack from '../../components/comeback/ComeBack';
 
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { DataGrid} from '@mui/x-data-grid';
 
 import React from 'react';
 import {useState, useEffect, useRef} from 'react';
@@ -41,8 +42,8 @@ function Classroom () {
     }, [])
 
     ipcRenderer.on('classroomData', (event, classroom) => {
-        setClassroomData(classroom);
         ipcRenderer.send('handshake:classroom', 'recieved')
+        setClassroomData(classroom);
     })
     
     const getSubjectsData = () => {
@@ -180,6 +181,8 @@ function Classroom () {
             })
             .then((data) => {
                 if(data.status == 200) {
+                    setStudentSid(null)
+                    sid.current.value=''
                     setStatusMessage({msg:"Student added successfully", color: 'green'})
                     setShowModal(true)
                     getStudentsData();
@@ -227,9 +230,9 @@ function Classroom () {
     ]
 
     const student_columns = [
-        {field: 'student_id', headerName: 'ID', width: 150},
-        { field: 'name', headerName: 'Name', width: 170 },
-        { field: 'email', headerName: 'Email', width: 170 },
+        {field: 'student_id', headerName: 'ID', width: 60},
+        { field: 'name', headerName: 'Name', width: 160 },
+        { field: 'email', headerName: 'Email', width: 160 },
         {
             field: 'action',
             headerName: 'View Record',
@@ -238,6 +241,18 @@ function Classroom () {
                 return (
                     <>
                         <button className='attendance_record_btn' onClick={()=>ipcRenderer.send('open_attendance_rocord_window', {subjectsData, studentData:row})}>Attendance Record</button>
+                    </>
+                )
+            }
+        },
+        {
+            field: 'Report',
+            headerName: 'Report',
+            width: 100,
+            renderCell: ({row}) => {
+                return (
+                    <>
+                        <button className='attendance_record_btn' onClick={()=>ipcRenderer.send('open_attendance_report_window', {subjectsData, studentData:row})}>Report</button>
                     </>
                 )
             }
@@ -271,7 +286,7 @@ function Classroom () {
                                             initialState={{
                                             pagination: {
                                                 paginationModel: {
-                                                pageSize: 5,
+                                                pageSize: 8,
                                                 },
                                             },
                                             }}
@@ -327,7 +342,7 @@ function Classroom () {
                                                 initialState={{
                                                 pagination: {
                                                     paginationModel: {
-                                                    pageSize: 5,
+                                                    pageSize: 8,
                                                     },
                                                 },
                                                 }}
@@ -383,6 +398,7 @@ function Classroom () {
             {
               showModal && <Modal statusMessage={statusMessage} time={3000} setShowModal={setShowModal} />
             }
+            <ComeBack/>
             </div>
     )
 }
