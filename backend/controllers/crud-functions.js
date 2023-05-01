@@ -1,6 +1,8 @@
 const {pool} = require("../db");
 const bcrypt = require('bcryptjs');
+const pdf = require('html-pdf');
 
+const {pdfTemplate} = require("../helpers/mailhelper.js");
 const {sendMail} = require("../helpers/mailhelper.js");
 const {generate_id} = require("../helpers/auth-helpers");
 
@@ -261,6 +263,7 @@ const get_teachers_for_teacher = async (req, res) => {
         console.log(err)
     }
 }
+
 const get_subjects = async(req, res) => {
     const {classroom_id} = req.params;
     console.log('classroom id', classroom_id)
@@ -324,6 +327,30 @@ const delete_student = async(req, res) => {
 
 }
 
+const create_pdf =  async(req, res) => {
+    try {
+        pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
+        if(err) {
+            res.send(Promise.reject());
+        }
+
+        res.send(Promise.resolve());
+    });
+    } catch(err) {
+        console.log(err)
+    }
+}
+const path = require('path');
+
+const get_pdf = async (req, res) => {
+    console.log(path.join(__dirname, '..', 'result.pdf'));
+    try {
+        res.sendFile(`${path.join(__dirname, '..', 'result.pdf')}`)
+    } catch(err) {
+        console.log(err)
+    }
+}
+
 module.exports = {
     create_department,
     add_classroom,
@@ -338,5 +365,7 @@ module.exports = {
     get_students,
     delete_classroom,
     delete_student,
-    get_id
+    get_id,
+    create_pdf,
+    get_pdf
 }

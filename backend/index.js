@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config()
+var bodyParser = require('body-parser');
 
 const socket = require("socket.io");
 
@@ -10,7 +11,7 @@ const blockchainRouter = require('./routes/blockchain-router.js');
 const scannerRouter = require('./routes/scanner-router.js');
 
 app.use(express.json())
-
+app.use(bodyParser.json());
 //Routes
 app.use('/api/auth', authRouter);
 app.use('/api/crud', crudRouter);

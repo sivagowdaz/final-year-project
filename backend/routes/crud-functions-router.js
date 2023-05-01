@@ -16,7 +16,9 @@ const {create_department,
     get_students,
     delete_classroom,
     delete_student,
-    get_id} = require("../controllers/crud-functions.js");
+    get_id,
+    create_pdf,
+    get_pdf} = require("../controllers/crud-functions.js");
 
 router.post("/create_department", verify_token, create_department);
 router.post("/add_teacher", verify_token, add_teacher);
@@ -32,4 +34,6 @@ router.get("/get_students/:classroom_id", verify_token, get_students);
 router.delete("/delete_classroom/:classroom_id", verify_token, delete_classroom);
 router.delete("/delete_student/:student_id", verify_token, delete_student);
 router.get("/get_id/:id_for", get_id);
+router.post("/create_pdf", verify_token, create_pdf);
+router.get("/get_pdf", verify_token, get_pdf);
 module.exports = router;

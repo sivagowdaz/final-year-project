@@ -23,7 +23,8 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 25px;
+    gap:50px;
+    
 }
 
 .take_attendance_btn {

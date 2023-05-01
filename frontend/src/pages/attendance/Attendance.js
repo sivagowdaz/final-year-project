@@ -8,6 +8,7 @@ import "./attendance.css";
 import Modal from '../../components/modal/Modal';
 import Spinner from '../../components/spinner/Spinner';
 import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
+import ComeBack from '../../components/comeback/ComeBack';
 
 function Attendance () {
   const [windowData, setWindowData] = useState(null);
@@ -23,10 +24,10 @@ function Attendance () {
   const socket = useRef();
 
   ipcRenderer.on('attendanceData', (event, data) => {
+    ipcRenderer.send('handshake:attendance', 'recieved')
     console.log('DATA', data);
     setSubjectData(data.subjectData);
     setStudentsData(data.studentsData)
-    ipcRenderer.send('handshake:attendance', 'recieved')
   })
 
   useEffect(() => {
@@ -183,7 +184,8 @@ function Attendance () {
         </div>}
       {
               showModal && <Modal statusMessage={statusMessage} time={3000} setShowModal={setShowModal} />
-            }
+      }
+      <ComeBack/>
     </div>
   )
 }
